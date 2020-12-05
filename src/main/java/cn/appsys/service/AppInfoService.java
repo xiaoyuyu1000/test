@@ -1,0 +1,97 @@
+package cn.appsys.service;
+
+import cn.appsys.pojo.AppInfo;
+import org.apache.ibatis.annotations.Param;
+
+
+import java.util.List;
+
+public interface AppInfoService {
+    /**
+     * 根据条件查询出app列表
+     * @param querySoftwareName
+     * @param queryStatus
+     * @param queryCategoryLevel1
+     * @param queryCategoryLevel2
+     * @param queryCategoryLevel3
+     * @param queryFlatformId
+     * @param devId
+     * @param currentPageNo
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+
+    /**
+     * 根据id查找appInfo
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public AppInfo getAppInfo(Integer id)throws Exception;
+    public boolean updateSatus(Integer status,Integer id)throws Exception;
+    /**
+     * 根据条件查询出app列表
+     * @param querySoftwareName
+     * @param queryStatus
+     * @param queryCategoryLevel1
+     * @param queryCategoryLevel2
+     * @param queryCategoryLevel3
+     * @param queryFlatformId
+     * @param devId
+     * @param currentPageNo
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+    public List<AppInfo> getAppInfoList(String querySoftwareName,Integer queryStatus,
+                                        Integer queryCategoryLevel1,Integer queryCategoryLevel2,
+                                        Integer queryCategoryLevel3,Integer queryFlatformId,
+                                        Integer devId,
+                                        Integer currentPageNo,Integer pageSize)throws Exception;
+    /**
+     * 根据条件查询appInfo表记录数
+     * @param querySoftwareName
+     * @param queryStatus
+     * @param queryCategoryLevel1
+     * @param queryCategoryLevel2
+     * @param queryCategoryLevel3
+     * @param queryFlatformId
+     * @param devId
+     * @return
+     * @throws Exception
+     */
+    public int getAppInfoCount(String querySoftwareName,Integer queryStatus,
+                               Integer queryCategoryLevel1,Integer queryCategoryLevel2,
+                               Integer queryCategoryLevel3,Integer queryFlatformId,Integer devId)throws Exception;
+    /**
+     * 修改app信息
+     * @param appInfo
+     * @return
+     * @throws Exception
+     */
+    public boolean modify(AppInfo appInfo)throws Exception;
+    /**
+     * 通过appId删除app应用(app_info、app_version)
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public boolean appsysdeleteAppById(Integer id)throws Exception;
+
+    /**
+     * update Sale Status By AppId and Operator
+     * @param appInfo.appid
+     * @return
+     * @throws Exception
+     */
+    public boolean appsysUpdateSaleStatusByAppId(AppInfo appInfo) throws Exception;
+
+    /**
+     * 新增app
+     * @param appInfo
+     * @return
+     * @throws Exception
+     */
+    public boolean add(AppInfo appInfo) throws Exception;
+}
